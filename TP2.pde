@@ -14,12 +14,10 @@ char e;
 char n;
 char d;
 char s;
-void setup() {
+void setup() { 
+  frameRate(10);
   textAlign(CENTER);
   size(1280, 516);
-}
-
-void draw() { 
   f='f'; 
   r='r'; 
   i='i'; 
@@ -28,7 +26,6 @@ void draw() {
   d='d'; 
   s='s'; 
   fuente=loadFont("GabrielWeissFriendsFont-48.vlw"); 
-  textFont(fuente, 70);
   lisa=loadImage("FRIENDS7.jpeg");
   david=loadImage("FRIENDS5.jpeg");
   mattew=loadImage("FRIENDS8.jpeg");
@@ -37,6 +34,10 @@ void draw() {
   jennifer=loadImage("FRIENDS2.jpeg"); 
   intro=loadImage("FRIENDS.jpeg");
   fin=loadImage("FRIENDS9.jpeg");
+}
+
+void draw() { 
+  textFont(fuente, 70);
   if (frameCount<=10) {
     image(intro, 0, 0);
     fill(255, 0, 0);
@@ -62,7 +63,7 @@ void draw() {
   }  
 
   textFont(fuente, 48);
-  if (frameCount>=10) {
+  if (frameCount>=20) {
     image(jennifer, 0, 0); 
     fill(0);
     text("jennifer Anniston", 645, 260);
@@ -72,7 +73,7 @@ void draw() {
     text("jennifer Anniston", width/2, height/2);
 
 
-    if (frameCount>=20) {
+    if (frameCount>=30) {
       image(lisa, 0, 0);
       fill(0);
       text("Lisa Kudrow", 645, 260);
@@ -81,7 +82,7 @@ void draw() {
       text("Lisa Kudrow", width/2, height/2);
     }
   }  
-  if (frameCount>=30) {
+  if (frameCount>=40) {
     image(courtney, 0, 0);
     fill(0);
     text("Courteney Cox", 645, 335);
@@ -89,7 +90,7 @@ void draw() {
     fill(255);
     text("Courteney Cox", width/2, 330);
   }  
-  if (frameCount>=40) {
+  if (frameCount>=50) {
     image(matt, 0, 0); 
     fill(0);
     text("Matt LeBlanc", 505, 260);
@@ -97,7 +98,7 @@ void draw() {
     fill(255);
     text("Matt LeBlanc", 500, height/2);
   }  
-  if (frameCount>=50) {
+  if (frameCount>=60) {
     image(mattew, 0, 0);
     fill(0);
     text("Mattew Perry", 645, 260);
@@ -105,7 +106,7 @@ void draw() {
     fill(255);
     text("Mattew Perry", width/2, height/2);
   }  
-  if (frameCount>=60) {
+  if (frameCount>=70) {
     image(david, 0, 0);
     fill(0);
     text("David Schwimmer", 645, 260);
@@ -113,21 +114,21 @@ void draw() {
     fill(255);
     text("David Schwimmer", width/2, height/2);
   }
-  if (frameCount>=70) {
+  if (frameCount>=80) {
     image(fin, 0, 0);
   }
-  if (frameCount>=80) {
-    fill(0, 0, 0, (frameCount-80)*60);
+  if (frameCount>=90) {
+    fill(0, 0, 0, (frameCount-90)*60);
     rect(0, 0, width, height);
   }
-  fill(255, 255, 255, (frameCount-75)*40);
+  fill(255, 255, 255, (frameCount-85)*40);
   if (frameCount>=75) {
     text("Created by", width/2, 200);
     text("David Crane", width/2, 300);
     text("&", width/2, 350);
     text("Marta Kauffman", width/2, 400);
   }
-  if (frameCount>=90) { 
+  if (frameCount>=130) { 
     background(0);
 
     circle(width/2, 480, 400);
@@ -140,7 +141,7 @@ void draw() {
 
     circle(mouseX, mouseY, 10);
   }
-  if (frameCount>=110 && (mousePressed &&( dist(mouseX, mouseY, width/2, 480)<200))) {
+  if (frameCount>=130 && (mousePressed &&( dist(mouseX, mouseY, width/2, 480)<200))) {
     frameCount=0;
   }
 }
