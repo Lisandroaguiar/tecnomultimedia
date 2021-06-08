@@ -14,8 +14,7 @@ char e;
 char n;
 char d;
 char s;
-int PosXimg;
-int Posytexto;
+
 int TamanoCirculo;
 float y=width;
 float y2=width;
@@ -47,7 +46,7 @@ void setup() {
 }
 
 void draw() {
-  Posytexto=
+
   TamanoCirculo=frameCount;
   textFont(fuente, 70);
   if (frameCount<=10) {
@@ -56,7 +55,7 @@ void draw() {
     circle(450, 230, TamanoCirculo);
     fill(0, 0, 255);
     circle(550, 230, TamanoCirculo);
-    fill(255, 200,0);
+    fill(255, 200, 0);
     circle(650, 230, TamanoCirculo);
     fill(255, 0, 0);
     circle(750, 230, TamanoCirculo);
@@ -65,20 +64,27 @@ void draw() {
     fill(0, 0, 255);
     circle(950, 230, TamanoCirculo);
     fill(255);
-    if (frameCount>=2){
-    text(f, 400, 516/2);}
-    if (frameCount>=3){
-    text(r, 500, 516/2);}
-    if (frameCount>=4){
-    text(i, 600, 516/2);}
-    if (frameCount>=5){
-    text(e, 700, 516/2);}
-    if (frameCount>=6){
-    text(n, 800, 516/2);}
-    if (frameCount>=7){
-    text(d, 900, 516/2);}
-    if (frameCount>=8){
-    text(s, 1000, 516/2);}
+    if (frameCount>=2) {
+      text(f, 400, 516/2);
+    }
+    if (frameCount>=3) {
+      text(r, 500, 516/2);
+    }
+    if (frameCount>=4) {
+      text(i, 600, 516/2);
+    }
+    if (frameCount>=5) {
+      text(e, 700, 516/2);
+    }
+    if (frameCount>=6) {
+      text(n, 800, 516/2);
+    }
+    if (frameCount>=7) {
+      text(d, 900, 516/2);
+    }
+    if (frameCount>=8) {
+      text(s, 1000, 516/2);
+    }
   }  
 
   textFont(fuente, 48);
@@ -90,7 +96,7 @@ void draw() {
     text("jennifer Anniston", 648, y);
     fill(255);
     text("jennifer Anniston", width/2, y);
-y=y+vel;
+    y=y+vel;
 
     if (frameCount>=30) {
       image(lisa, 0, 0);
@@ -136,7 +142,7 @@ y=y+vel;
     text("David Schwimmer", 648, y6);
     fill(255);
     text("David Schwimmer", width/2, y6);
-     y6=y6+vel;
+    y6=y6+vel;
   }
   if (frameCount>=80) {
     image(fin, 0, 0);
@@ -152,5 +158,4 @@ y=y+vel;
     text("&", width/2, 350);
     text("Marta Kauffman", width/2, 400);
   }
- 
 }
