@@ -14,7 +14,6 @@ char e;
 char n;
 char d;
 char s;
-
 int TamanoCirculo;
 float y=width;
 float y2=width;
@@ -120,10 +119,10 @@ void draw() {
   if (frameCount>=50) {
     image(matt, 0, 0); 
     fill(0);
-    text("Matt LeBlanc", 505, y4);
-    text("Matt LeBlanc", 508, y4);
+    text("Matt LeBlanc", 645, y4);
+    text("Matt LeBlanc", 648, y4);
     fill(255);
-    text("Matt LeBlanc", 500, y4);
+    text("Matt LeBlanc", width/2, y4);
     y4=y4+vel;
   }  
   if (frameCount>=60) {
@@ -157,5 +156,19 @@ void draw() {
     text("David Crane", width/2, 300);
     text("&", width/2, 350);
     text("Marta Kauffman", width/2, 400);
+  }
+  if (frameCount>=130) {  
+    fill(0); 
+    rect(0, 0, width, height); 
+    fill(255);
+    circle(width/2, height, 400);  
+    fill(0); 
+    text("reiniciar", width/2, 500);
+    fill(255,200,0);
+    if (mousePressed==true){fill(255,0,0);}
+    circle(mouseX, mouseY, 10);
+    if (dist(width/2, height, mouseX, mouseY)<400&&mousePressed==true) {
+      frameCount=0;
+    }
   }
 }
