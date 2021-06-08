@@ -164,10 +164,12 @@ void draw() {
     circle(width/2, height, 400);  
     fill(0); 
     text("reiniciar", width/2, 500);
-    fill(255,200,0);
-    if (mousePressed==true){fill(255,0,0);}
+    fill(255, 200, 0);
+    if (mousePressed==true) {
+      fill(255, 0, 0);
+    }
     circle(mouseX, mouseY, 10);
-    if (dist(width/2, height, mouseX, mouseY)<400&&mousePressed==true) {
+    if (dist(width/2, height, mouseX, mouseY)<200&&mousePressed==true) {
       frameCount=0;
     }
   }
