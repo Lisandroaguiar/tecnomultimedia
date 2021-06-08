@@ -14,8 +14,18 @@ char e;
 char n;
 char d;
 char s;
+int PosXimg;
+int Posytexto;
+int TamanoCirculo;
+float y=width;
+float y2=width;
+float y3=width;
+float y4=width;
+float y5=width;
+float y6=width;
+float vel=60;
 void setup() { 
-  frameRate(10);
+  frameRate(5);
   textAlign(CENTER);
   size(1280, 516);
   f='f'; 
@@ -36,83 +46,97 @@ void setup() {
   fin=loadImage("FRIENDS9.jpeg");
 }
 
-void draw() { 
+void draw() {
+  Posytexto=
+  TamanoCirculo=frameCount;
   textFont(fuente, 70);
   if (frameCount<=10) {
     image(intro, 0, 0);
     fill(255, 0, 0);
-    circle(450, 230, 10);
+    circle(450, 230, TamanoCirculo);
     fill(0, 0, 255);
-    circle(550, 230, 10);
-    fill(255, 200, 0);
-    circle(650, 230, 10);
+    circle(550, 230, TamanoCirculo);
+    fill(255, 200,0);
+    circle(650, 230, TamanoCirculo);
     fill(255, 0, 0);
-    circle(750, 230, 10);
+    circle(750, 230, TamanoCirculo);
     fill(255, 200, 0);
-    circle(850, 230, 10);
+    circle(850, 230, TamanoCirculo);
     fill(0, 0, 255);
-    circle(950, 230, 10);
+    circle(950, 230, TamanoCirculo);
     fill(255);
-    text(f, 400, 516/2);
-    text(r, 500, 516/2);
-    text(i, 600, 516/2);
-    text(e, 700, 516/2);
-    text(n, 800, 516/2);
-    text(d, 900, 516/2);
-    text(s, 1000, 516/2);
+    if (frameCount>=2){
+    text(f, 400, 516/2);}
+    if (frameCount>=3){
+    text(r, 500, 516/2);}
+    if (frameCount>=4){
+    text(i, 600, 516/2);}
+    if (frameCount>=5){
+    text(e, 700, 516/2);}
+    if (frameCount>=6){
+    text(n, 800, 516/2);}
+    if (frameCount>=7){
+    text(d, 900, 516/2);}
+    if (frameCount>=8){
+    text(s, 1000, 516/2);}
   }  
 
   textFont(fuente, 48);
   if (frameCount>=20) {
     image(jennifer, 0, 0); 
     fill(0);
-    text("jennifer Anniston", 645, 260);
+    text("jennifer Anniston", 645, y);
 
-    text("jennifer Anniston", 648, 263);
+    text("jennifer Anniston", 648, y);
     fill(255);
-    text("jennifer Anniston", width/2, height/2);
-
+    text("jennifer Anniston", width/2, y);
+y=y+vel;
 
     if (frameCount>=30) {
       image(lisa, 0, 0);
       fill(0);
-      text("Lisa Kudrow", 645, 260);
-      text("Lisa Kudrow", 648, 263);
+      text("Lisa Kudrow", 645, y2);
+      text("Lisa Kudrow", 648, y2);
       fill(255);
-      text("Lisa Kudrow", width/2, height/2);
+      text("Lisa Kudrow", width/2, y2);
+      y2=y2+vel;
     }
   }  
   if (frameCount>=40) {
     image(courtney, 0, 0);
     fill(0);
-    text("Courteney Cox", 645, 335);
-    text("Courteney Cox", 648, 338);
+    text("Courteney Cox", 645, y3);
+    text("Courteney Cox", 648, y3);
     fill(255);
-    text("Courteney Cox", width/2, 330);
+    text("Courteney Cox", width/2, y3);
+    y3=y3+vel;
   }  
   if (frameCount>=50) {
     image(matt, 0, 0); 
     fill(0);
-    text("Matt LeBlanc", 505, 260);
-    text("Matt LeBlanc", 508, 263);
+    text("Matt LeBlanc", 505, y4);
+    text("Matt LeBlanc", 508, y4);
     fill(255);
-    text("Matt LeBlanc", 500, height/2);
+    text("Matt LeBlanc", 500, y4);
+    y4=y4+vel;
   }  
   if (frameCount>=60) {
     image(mattew, 0, 0);
     fill(0);
-    text("Mattew Perry", 645, 260);
-    text("Mattew Perry", 648, 263);
+    text("Mattew Perry", 645, y5);
+    text("Mattew Perry", 648, y5);
     fill(255);
-    text("Mattew Perry", width/2, height/2);
+    text("Mattew Perry", width/2, y5);
+    y5=y5+vel;
   }  
   if (frameCount>=70) {
     image(david, 0, 0);
     fill(0);
-    text("David Schwimmer", 645, 260);
-    text("David Schwimmer", 648, 263);
+    text("David Schwimmer", 645, y6);
+    text("David Schwimmer", 648, y6);
     fill(255);
-    text("David Schwimmer", width/2, height/2);
+    text("David Schwimmer", width/2, y6);
+     y6=y6+vel;
   }
   if (frameCount>=80) {
     image(fin, 0, 0);
@@ -128,20 +152,5 @@ void draw() {
     text("&", width/2, 350);
     text("Marta Kauffman", width/2, 400);
   }
-  if (frameCount>=130) { 
-    background(0);
-
-    circle(width/2, 480, 400);
-    fill(0);
-    text("reiniciar", width/2, 480);
-    fill(255, 200, 0); 
-    if (mousePressed) {
-      fill(255, 0, 0);
-    } 
-
-    circle(mouseX, mouseY, 10);
-  }
-  if (frameCount>=130 && (mousePressed &&( dist(mouseX, mouseY, width/2, 480)<200))) {
-    frameCount=0;
-  }
+ 
 }
