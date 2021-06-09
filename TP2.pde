@@ -15,12 +15,12 @@ char n;
 char d;
 char s;
 int TamanoCirculo;
-float y=width;
-float y2=width;
-float y3=width;
-float y4=width;
-float y5=width;
-float y6=width;
+float y=height;
+float y2=height;
+float y3=height;
+float y4=height;
+float y5=height;
+float y6=height;
 float vel=60;
 void setup() { 
   frameRate(5);
@@ -171,6 +171,12 @@ void draw() {
     circle(mouseX, mouseY, 10);
     if (dist(width/2, height, mouseX, mouseY)<200&&mousePressed==true) {
       frameCount=0;
+      y=10;
+      y2=10;
+      y3=10;
+      y4=10;
+      y5=10;
+      y6=10;
     }
   }
 }
