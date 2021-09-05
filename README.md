@@ -1,1 +1,1 @@
-# tecnomultimedia
+La noche llego a su fin y vos no estas en las mejores condiciones, encima perdiste a tus amigos que te dijeron algo pero ya ni sabes como te llamas, menos lo que te dijeron, sacas la billetera con la esperanza de tomarte un taxi pero esta vacia, ya no tenes billetes, ni esperanzas de salvarte de la caminata, si total, 20 cuadras a las 5 de la mañana no son nada, ¿vas a poder llegar a salvo a tu casa?
