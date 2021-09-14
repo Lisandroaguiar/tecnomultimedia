@@ -1,0 +1,4 @@
+void marco(int c,int f, int tamx, int tamy){
+     background(c);
+    image(fotos[f],100,10);
+    fotos[f].resize(tamx,tamy);}
