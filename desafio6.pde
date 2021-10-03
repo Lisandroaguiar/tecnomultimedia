@@ -6,7 +6,7 @@ lola = new mariposa (100,100,100,#FA67DF);
 
 
 }
-void draw(){background(100);
+void draw(){background(#67D9FA);
 lola.dibujar();
 lola.move();
   
