@@ -46,7 +46,7 @@ class Jugador {
     float yObstaculo= obstaculo.getY();
 
     float dColision= dist(xObstaculo, yObstaculo, posX, posY);
-    if (dColision<hitBox/3) { 
+    if (dColision<hitBox/5) { 
       velocidad-=0.25; 
       println("colisionObstaculosMoviles");
       obstaculo.reciclar();
