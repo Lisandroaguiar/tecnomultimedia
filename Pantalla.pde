@@ -86,9 +86,9 @@ class Pantalla {
       image(fotos[2], 100, 40, 300, 300);
       boton.botonContinuar(150, 450, 200, 25, 15, aux);
       println(estado);
-      texto.dibujarTexto(textos[17], 250, 360+30);
-      texto.dibujarTexto(textos[18], 250, 360);
-      texto.dibujarTexto(textos[19], 250, 360+60);
+      for (int i=17; i<20; i++) {
+        texto.dibujarTexto(textos[i], 250, 360+(i-17)*30);
+      }
     }  
 
     if (estado=="ganaste") { 
