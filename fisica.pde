@@ -1,3 +1,5 @@
+
+
 /*import ddf.minim.*;
  import ddf.minim.analysis.*;
  import ddf.minim.effects.*;
@@ -9,9 +11,10 @@ import processing.sound.*;
 SoundFile file;
 
 import fisica.*;
-
+boolean empezarTiempo;
+int tiempo;
 int c= 0; //contador 1
-int salen=300; //tiempo que tardan en salir las notas
+int salen=100; //tiempo que tardan en salir las notas
 int c2= 0; //contador 2
 int c3=0;//contador 3
 int a=150;
@@ -30,6 +33,7 @@ Parlante p;
 SoundFile error;
 SoundFile bien;
 SoundFile chifle;
+SoundFile cancion;
 SoundFile[] fragmento ;
 int numeroDeFragmento=0;
 //creamos una caja
@@ -44,7 +48,8 @@ FBox bordeA;
 void setup() {
   //minim=new Minim(this);
   error= new SoundFile (this, "error.mp3");
-  bien= new SoundFile (this, "nombre.wav");
+  bien= new SoundFile (this, "bien.wav");
+  cancion= new SoundFile (this, "chaqueño.mp3");
 fragmento=new SoundFile[30];
   chifle= new SoundFile(this, "chifle.mp3");
 
@@ -78,6 +83,7 @@ fragmento=new SoundFile[30];
   caja.setRotatable(false); //para que no se gire el rectangulo cuando golpea las notas
   borde.setNoStroke();
   bordeA.setNoStroke();
+  //cancion.play();
 }
 
 void draw() {
@@ -143,21 +149,26 @@ void draw() {
    }*/
   p.dibujar();
   rect(500, 10, progreso*10, 10);
-  println(c, c2, c3, salen, a, numeroDeFragmento);
+  println(c, c2, c3, salen, a, numeroDeFragmento, tiempo);
+
 }
 void contactStarted(FContact contacto) {
   FBody body1=contacto.getBody1();
   FBody body2=contacto.getBody2();
-
+tiempo++;
 
   if ( body1.getName() != null && body2.getName() !=null && body1.getName() != body2.getName()) {
+    //numeroDeFragmento++;
+    if(numeroDeFragmento>28){numeroDeFragmento=0;}
     numeroDeFragmento++;
-    if(numeroDeFragmento>29){numeroDeFragmento=0;}
     mundo.remove(body2);
     println(body1.getName(), "colisiono");
     progreso++;
-    
-    fragmento[numeroDeFragmento].play();
+    empezarTiempo=true;
+    fragmento[numeroDeFragmento].loop();
+    fragmento[numeroDeFragmento - 1].stop();
+    if(numeroDeFragmento<10){fragmento[28].stop();
+  fragmento[29].stop();}
     //bien.play();
   }
 }
