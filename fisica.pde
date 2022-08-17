@@ -14,7 +14,7 @@ import fisica.*;
 boolean empezarTiempo;
 int tiempo;
 int c= 0; //contador 1
-int salen=100; //tiempo que tardan en salir las notas
+int salen=150; //tiempo que tardan en salir las notas
 int c2= 0; //contador 2
 int c3=0;//contador 3
 int a=150;
@@ -22,11 +22,11 @@ int opo=3; //oportunidades
 int progreso;
 boolean notasSecaen =false;
 int estado;
-String [] nombre={"fragmento01", "fragmento02", "fragmento03", "fragmento04", "fragmento05", "fragmento06", 
+String [] nombre={"fragmento02", "fragmento03", "fragmento04", "fragmento05", "fragmento06", 
 "fragmento07", "fragmento08", "fragmento09", "fragmento010", "fragmento011", "fragmento012","fragmento013", 
 "fragmento014", "fragmento015", "fragmento016", "fragmento017", "fragmento018", 
 "fragmento019", "fragmento020", "fragmento021", "fragmento022", "fragmento023", "fragmento024", 
-"fragmento025", "fragmento026", "fragmento027", "fragmento028", "fragmento029", "fragmento030"};
+"fragmento025", "fragmento026", "fragmento027", "fragmento028", "fragmento029", "fragmento030", "fragmento031"};
 FWorld mundo;
 Parlante p;
 //Minim minim;
