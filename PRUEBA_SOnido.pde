@@ -16,9 +16,7 @@ for (int i=0; i<30; i++) {
     fragmento [i]= new SoundFile(this, nombre[i]+".wav");
     }}
 void draw(){
-  boolean quedaSonando=false;
-int queF=0;
-int queFNo=0;
+
 marcaDeTiempo=millis()-marcaDeTiempo2;
 
 if(marcaDeTiempo>tiempo){
@@ -28,19 +26,6 @@ fragmento[numeroDeFragmento].play();
 numeroDeFragmento++;
 
 }
-if(mousePressed==true && numeroDeFragmento%2==0){queF=queFragmentoEntro();
-quedaSonando=true;
-}
-else{
-queFNo=queFragmentoNoEntro();
-fragmento[queFNo].amp(0.0);}
-if(numeroDeFragmento>8){numeroDeFragmento=0;}
-println(marcaDeTiempo,queF,quedaSonando);
-if(quedaSonando==true){ fragmento[queFragmentoEntro()].amp(0.2);}
 
 
 }
-int queFragmentoEntro() {
-return(numeroDeFragmento);}
-int queFragmentoNoEntro() {
-return(numeroDeFragmento);}
