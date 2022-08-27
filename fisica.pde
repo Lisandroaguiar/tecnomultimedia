@@ -44,7 +44,7 @@ SoundFile[] fragmento;
 int numeroDeFragmento=0;
 boolean cambiarEstado=false;
 //----sonido----
-int tiempo= 2000;
+int tiempo= 1800;
 int marcaDeTiempo=0;
 int marcaDeTiempo2=0;
 boolean [] entroFragmento;
@@ -169,7 +169,7 @@ entroFragmento[29]=false;
     botonCustom("play", 2, round(width/2-117.5), round(height/4*3-20), 235, 83);
     opo=3;
     progreso=0;
-    salen=1500;
+    
   }
   if (estado==2) {
     //------------------------------------------------prueba de sonido------------------------------------------------
@@ -227,7 +227,7 @@ numeroDeFragmento++;
     
     
     //------------------------------------------------prueba de sonido------------------------------------------------
-    salen=150;
+   
     perdiste.stop();
     fragmento[numeroDeFragmento].amp(0.4);
     meta.setNoStroke();
