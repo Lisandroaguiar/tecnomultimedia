@@ -15,7 +15,7 @@ boolean empezarTiempo;
 int estado=1;
 
 int c= 0; //contador 1
-int salen=300; //tiempo que tardan en salir las notas
+int salen=150; //tiempo que tardan en salir las notas
 int c2= 0; //contador 2
 int c3=0;//contador 3
 int a=150;
@@ -73,8 +73,8 @@ void setup() {
     fragmento [i]= new SoundFile(this, nombre[i]+".wav");
   }
 
-  amorSalvaje.loop();
-  amorSalvaje.amp(0.1);
+  //amorSalvaje.loop();
+  //amorSalvaje.amp(0.1);
   ganar.amp(0.2);
   //imagenes
   fondoInicio = loadImage("imagenes/fondoInicio.png");
@@ -381,7 +381,7 @@ void botonGanar(String textoB, int queEstado, int x, int y, int posx, int posy) 
   if (mouseX > x && mouseX < posx +x && mouseY > y && mouseY < posy + y ) {
     //fill(245, 190, 247);
     if (mousePressed==true) {
-      amorSalvaje.loop();
+      //amorSalvaje.loop();
       estado=queEstado;
       //fill(230, 133, 232);
     }
