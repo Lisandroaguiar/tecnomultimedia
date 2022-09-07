@@ -12,6 +12,7 @@ SoundFile file;
 
 import fisica.*;
 boolean empezarTiempo;
+int cambia=0;
 int estado=1;
 int contador=0;
 int c= 0; //contador 1
@@ -50,6 +51,7 @@ int marcaDeTiempo2=0;
 boolean [] entroFragmento;
 boolean salenNotas=false;
 PImage [] barraProgreso;
+PImage [] gauchos;
 //----sonido----
 //creamos una caja
 //FBox caja;
@@ -73,6 +75,7 @@ void setup() {
   chifle= new SoundFile(this, "chifle.mp3");
   perdiste= new SoundFile(this, "chaqueño_editado.mp3");
   barraProgreso= new PImage[30] ;
+  gauchos=new PImage[3];
   for (int i=0; i<30; i++) {
     fragmento [i]= new SoundFile(this, nombre[i]+".wav");
     barraProgreso[i]= loadImage("imagenes/progreso"+ i +".png");
@@ -80,6 +83,11 @@ void setup() {
   for (int i=0; i<29; i++) {
 
     barraProgreso[i]= loadImage("imagenes/progreso"+ i +".png");
+  }
+  for (int i=0; i<2; i++) {
+
+    gauchos[i]= loadImage("imagenes/bailarines"+ i +".png");
+     gauchos[i].resize(400,300);
   }
 
   amorSalvaje.loop();
@@ -200,7 +208,7 @@ void draw() {
     mundo.step();
     //dibuja el mundo de fisica
     mundo.draw();
-    image(bailarines, 1100, 100);
+    image(gauchos[cambia], 1000, 100);
 
     if (c>=salen && salenNotas==true) {
       p.notas(mundo);
@@ -254,6 +262,7 @@ void draw() {
     botonGanar("Menu", 1, round(width/2-150.5), round(height/4*3-20), 301, 85);
     contador++;
     pop();
+    c=0;
   }
 
   if (estado==4) {
@@ -267,7 +276,7 @@ void draw() {
     error.stop();
     bien.stop();
     chifle.stop();
-
+c=0;
     contador++;
   }
 
@@ -289,7 +298,8 @@ void contactStarted(FContact contacto) {
     // println(body1.getName(), "colisiono");
     progreso++;
     empezarTiempo=true;
-
+cambia++;
+if(cambia>=2){cambia=0;}
     bien.play();
   }
 }
