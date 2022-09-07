@@ -18,9 +18,9 @@ class Parlante{
   
   void dibujar (){
     pushMatrix();
-    nota1 = loadImage("notas22.png");
-    nota2 = loadImage("notas22.png");
-    nota3 = loadImage("notas22.png");
+    nota1 = loadImage("imagenes/notas22.png");
+    nota2 = loadImage("imagenes/notas22.png");
+    nota3 = loadImage("imagenes/notas22.png");
     
     rect(x,y, ancho,alto);
     popMatrix();

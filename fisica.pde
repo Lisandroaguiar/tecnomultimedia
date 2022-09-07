@@ -49,6 +49,7 @@ int marcaDeTiempo=0;
 int marcaDeTiempo2=0;
 boolean [] entroFragmento;
 boolean salenNotas=false;
+PImage [] barraProgreso;
 //----sonido----
 //creamos una caja
 //FBox caja;
@@ -71,9 +72,12 @@ void setup() {
   fragmento=new SoundFile[30];
   chifle= new SoundFile(this, "chifle.mp3");
   perdiste= new SoundFile(this, "chaqueño_editado.mp3");
+   barraProgreso= new PImage[30] ;
   for (int i=0; i<30; i++) {
     fragmento [i]= new SoundFile(this, nombre[i]+".wav");
+    barraProgreso[i]= loadImage("imagenes/progreso"+ i +".png");
   }
+ 
 
 amorSalvaje.loop();
   //amorSalvaje.amp(0.1);
@@ -94,7 +98,7 @@ amorSalvaje.loop();
 
 
   //textos
-  textosPerder = loadStrings("perder.txt"); 
+  textosPerder = loadStrings("imagenes/perder.txt"); 
   // circulo=new FCircle(10);
   Fisica.init(this);
   mundo = new FWorld();
@@ -141,11 +145,11 @@ void draw() {
     perdiste.stop();
     //background(255);
     background(fondoInicio);
-    image(botonJugar, width/2-117.5, height/4*3-20);
-    image(tituloInicio, width/2-265, 70);
-    image(instrucciones, width/2-191, height/2-55.5);
+    image(botonJugar, width*0.43, height*0.71);
+    image(tituloInicio, width*0.43, 70);
+    image(instrucciones, width*0.39, height*0.4);
     ganar.stop();
-    botonCustom("play", 2, round(width/2-117.5), round(height/4*3-20), 235, 83);
+    botonCustom("play", 2, round(width*0.43), round(height*0.71), 235, 83);
     opo=3;
     progreso=0;
   }
@@ -225,8 +229,8 @@ void draw() {
 
     p.dibujar();
     image(radio, 30, 10);
-    rect(500, 10, progreso*10, 10);
-
+  //  rect(500, 10, progreso*10, 10);
+image(barraProgreso[progreso],500,10);
 
     if (opo<=0) {
       estado=3;
