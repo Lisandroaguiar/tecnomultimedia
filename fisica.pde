@@ -156,7 +156,7 @@ void draw() {
   if (estado==2) {
     //------------------------------------------------prueba de sonido------------------------------------------------
     salenNotas =true;
-    amorSalvaje.stop();
+    amorSalvaje.amp(0.03);
     marcaDeTiempo=millis()-marcaDeTiempo2;
     for (int z=0; z<=29; z++) {
       if (entroFragmento[z]==true) {fragmento[z].amp(0.2);}
@@ -273,7 +273,7 @@ image(barraProgreso[progreso],500,10);
     error.stop();
     bien.stop();
     chifle.stop();
-    fragmento[numeroDeFragmento].stop();
+   
     contador++;
   }
 
