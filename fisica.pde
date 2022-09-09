@@ -42,10 +42,10 @@ SoundFile cancion;
 SoundFile amorSalvaje;
 SoundFile ganar;
 SoundFile[] fragmento;
-int numeroDeFragmento=0;
+int numeroDeFragmento=1;
 boolean cambiarEstado=false;
 //----sonido----
-int tiempo= 1800;
+int tiempo= 1560;
 int marcaDeTiempo=0;
 int marcaDeTiempo2=0;
 boolean [] entroFragmento;
@@ -166,7 +166,7 @@ void draw() {
     contador++;
     c=0;
     //------------------------------prueba---------------------------
-    numeroDeFragmento=0;
+    numeroDeFragmento=1;
 
 
     perdiste.stop();
@@ -197,7 +197,7 @@ void draw() {
       }
     }
 
-    if (marcaDeTiempo>tiempo) {
+    if (entroFragmento[1]==true && marcaDeTiempo>tiempo) {
 
       //fragmento[numeroDeFragmento].play();
       marcaDeTiempo2=millis();
@@ -270,13 +270,14 @@ void draw() {
     //  rect(500, 10, progreso*10, 10);
     image(barraProgreso[progreso], 680, 10);
     image(empanadas[opo], 50, 450);
+    if(numeroDeFragmento>10){numeroDeFragmento=0;}
     if (opo<=0) {
       estado=3;
       fragmento[numeroDeFragmento].stop();
       perdiste.play();
       frase = round(random(0, 4));
     }
-    if (progreso>=2) {
+    if (progreso>=29) {
       estado=4;
       //fragmento[numeroDeFragmento].stop();
       ganar.play();
@@ -329,12 +330,10 @@ void contactStarted(FContact contacto) {
   FBody body2=contacto.getBody2();
   tiempo++;
 
-  if ( body1.getName() != null && body2.getName() !=null && body1.getName() != body2.getName()) {
+  if ( body1.getName() != null && body2.getName() !=null && body1.getName() != body2.getName()) {entroFragmento[numeroDeFragmento]=true;
     //numeroDeFragmento++;
-    if (numeroDeFragmento>28) {
-      numeroDeFragmento=0;
-    }
-    entroFragmento[numeroDeFragmento]=true;
+
+    
     mundo.remove(body2);
     // println(body1.getName(), "colisiono");
     progreso++;
@@ -343,7 +342,6 @@ void contactStarted(FContact contacto) {
     if (cambia>=2) {
       cambia=0;
     }
-    bien.play();
   }
 }
 
