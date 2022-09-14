@@ -339,7 +339,7 @@ float mover= map(marcaDeTiempo3,0,tiempo2,400,900);
       frase = round(random(0, 4));
   
     }
-    if (progreso>=15) {
+    if (progreso>=15 || entroFragmento[0] && entroFragmento[1] && entroFragmento[2] && entroFragmento[3] && entroFragmento[4] && entroFragmento[5]) {
       estado=4;
       //fragmento[numeroDeFragmento].stop();
       ganar.play();
