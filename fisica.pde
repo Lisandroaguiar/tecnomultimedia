@@ -14,6 +14,9 @@ import fisica.*;
 float mover=0;
 boolean empezarTiempo;
 int cambia=0;
+int etapaUno=0;
+int etapaDos=2;
+int etapaTres=4;
 int estado=1;
 int contador=0;
 int c= 0; //contador 1
@@ -87,7 +90,7 @@ void setup() {
   chifle= new SoundFile(this, "chifle.mp3");
   perdiste= new SoundFile(this, "chaqueño_editado.mp3");
   barraProgreso= new PImage[30] ;
-  gauchos=new PImage[3];
+  gauchos=new PImage[6];
   empanadas = new PImage[4];
   
   verde=new PImage[3];
@@ -102,7 +105,7 @@ void setup() {
     fragmento [i]= new SoundFile(this, nombre[i]+".wav");
     barraProgreso[i]= loadImage("imagenes/progreso"+ i +".png");
   }
-  for (int i=0; i<2; i++) {
+  for (int i=0; i<6; i++) {
 
     gauchos[i]= loadImage("imagenes/bailarines"+ i +".png");
     gauchos[i].resize(400, 400);
@@ -189,10 +192,9 @@ void setup() {
 }
 
 void draw() {
-boolean eliminarNota=false;
 
   if (estado==1) {
-    eliminarNota=true;
+    
     salenNotas=false;
     //------------------------------prueba---------------------------
     for (int b=0; b<6; b++) {
@@ -256,7 +258,7 @@ boolean eliminarNota=false;
 
     }
     
-    println(entroFragmento[0], entroFragmento[1], entroFragmento[2], entroFragmento[3], entroFragmento[4], entroFragmento[5], entroFragmento[7], entroFragmento[8], numeroDeFragmento);
+    println(cambia);
 
 
 
@@ -294,7 +296,8 @@ boolean eliminarNota=false;
     if(opo==3){    for (int i=0; i<3; i++) {
 
     image(verde[i],150, 150);
-  }}
+  }
+}
   
   if(opo==2){    for (int i=0; i<3; i++) {
 
@@ -305,7 +308,17 @@ boolean eliminarNota=false;
 
     image(rojo[i],150, 150);
   }}
+
+  
+ 
     image(gauchos[cambia], 1400, 160);
+    
+    if(opo==3){
+    cambia=etapaUno;}
+    if(opo==2){
+    cambia=etapaDos;}
+    if(opo==1){
+    cambia=etapaTres;}
 
     if (c>=salen && salenNotas==true) {
       p.dibujarNotas(mundo);
@@ -468,11 +481,21 @@ void contactStarted(FContact contacto) {
     // println(body1.getName(), "colisiono");
     progreso++;
     empezarTiempo=true;
-    cambia++;
-    if (cambia>=2) {
-      cambia=0;
+    //cambia++;
+    if(opo==3){etapaUno++;}
+    if(opo==2){etapaDos++;}
+    if(opo==1){etapaTres++;}
+
+    if (etapaUno>1 && opo==3) {
+      etapaUno=0;
+    }
+        if (etapaDos>3 && opo==2) {
+      etapaDos=2;
     }
     
+    if (etapaTres>5 && opo==1) {
+      etapaTres=4;
+    }
     
   }
 }
